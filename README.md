@@ -19,20 +19,58 @@ Die App macht den Zustand, das Wissen und die Aktivitäten aller Agents an einem
 
 ## Tech Stack
 
-- Next.js 15
+- Next.js (App Router)
 - TypeScript
 - Tailwind CSS
-- shadcn/ui
-- Monaco Editor
-- Recharts
+
+> UI-Komponenten (z.B. shadcn/ui), Editor (Monaco) und Charts kommen später in den UI-Stories.
 
 ## Ziel
 
 Mission Control ist das Nervenzentrum für Morpheus und seine Sub-Agents: beobachten, verstehen, steuern.
 
+## Development
+
+### Requirements
+
+- Node.js (Corepack empfohlen)
+- pnpm
+
+```bash
+corepack enable
+corepack prepare pnpm@9.15.4 --activate
+```
+
+### Install
+
+```bash
+pnpm install
+```
+
+### Run (dev)
+
+```bash
+pnpm dev
+```
+
+### Lint / Build
+
+```bash
+pnpm lint
+pnpm build
+```
+
+### Health Endpoint
+
+- `GET /api/health` → `{ "status": "ok", "ts": "..." }`
+
+## Security / Auth
+
+Auth kommt als nächster Schritt (siehe Jira **MICO-9**) — aktuell ist das Dashboard **nicht** für öffentliches Internet gedacht.
+
 ## Status
 
-In Planung / Initialaufbau.
+v0.1 Bootstrap (MICO-8): Next.js Projekt initialisiert.
 
 ## Notes
 
