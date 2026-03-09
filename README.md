@@ -34,6 +34,10 @@ Mission Control ist das Nervenzentrum für Morpheus und seine Sub-Agents: beobac
 
 In Planung / Initialaufbau.
 
+## Prozess
+
+- [Workflow-Regeln](docs/workflow.md)
+
 ## Notes
 
 Das Dashboard ist für den internen Einsatz gedacht und läuft direkt auf dem Morpheus-Server mit Dateisystemzugriff auf die OpenClaw-Workspaces.
