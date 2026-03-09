@@ -1,16 +1,9 @@
 import { Activity, Bell, Bot, Clock3, LayoutDashboard, Shield } from "lucide-react";
 
+import { AgentRoster } from "@/components/agent-roster";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-
-const agents = [
-  { name: "Morpheuxx", role: "Supervisor", status: "Online" },
-  { name: "Neo", role: "Dev Specialist", status: "Online" },
-  { name: "Trinity", role: "Secretary", status: "Idle" },
-  { name: "Tank", role: "Utilities & Ops", status: "Idle" },
-  { name: "Oracle", role: "Editorial", status: "Offline" },
-];
 
 const highlights = [
   {
@@ -76,7 +69,7 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <Button className="w-full" variant="secondary">
-                  MICO-8 in progress
+                  MICO-11 in progress
                 </Button>
               </CardContent>
             </Card>
@@ -88,11 +81,10 @@ export default function Home() {
             <div>
               <p className="text-sm uppercase tracking-[0.2em] text-zinc-500">Operator Console</p>
               <h2 className="mt-2 text-3xl font-semibold tracking-tight text-white">
-                Foundation bootstrap is live.
+                Fleet Overview
               </h2>
               <p className="mt-2 max-w-2xl text-sm text-zinc-400">
-                This initial shell gives Mission Control a deployable front-end baseline without locking in the
-                final product design too early.
+                Agent roster loaded live from the discovery API. Coarse status only for this POC slice.
               </p>
             </div>
             <div className="flex items-center gap-3">
@@ -119,28 +111,7 @@ export default function Home() {
 
           <div className="mt-6 grid gap-4 xl:grid-cols-[1.3fr_0.7fr]">
             <Card className="border-white/10 bg-white/5 shadow-none">
-              <CardHeader>
-                <CardTitle className="text-white">Known agents</CardTitle>
-                <CardDescription>
-                  Static seed data for the bootstrap. Real roster data will come with the agent discovery API.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                {agents.map((agent) => (
-                  <div
-                    key={agent.name}
-                    className="flex items-center justify-between rounded-lg border border-white/10 bg-black/20 px-4 py-3"
-                  >
-                    <div>
-                      <p className="font-medium text-white">{agent.name}</p>
-                      <p className="text-sm text-zinc-400">{agent.role}</p>
-                    </div>
-                    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-zinc-300">
-                      {agent.status}
-                    </span>
-                  </div>
-                ))}
-              </CardContent>
+              <AgentRoster />
             </Card>
 
             <Card className="border-white/10 bg-white/5 shadow-none">
