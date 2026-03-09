@@ -1,65 +1,164 @@
-import Image from "next/image";
+import { Activity, Bell, Bot, Clock3, LayoutDashboard, Shield } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+
+const agents = [
+  { name: "Morpheuxx", role: "Supervisor", status: "Online" },
+  { name: "Neo", role: "Dev Specialist", status: "Online" },
+  { name: "Trinity", role: "Secretary", status: "Idle" },
+  { name: "Tank", role: "Utilities & Ops", status: "Idle" },
+  { name: "Oracle", role: "Editorial", status: "Offline" },
+];
+
+const highlights = [
+  {
+    title: "Fleet Overview",
+    description: "Sprint-1-Ziel: erste Agent-Übersicht mit echter API-Anbindung.",
+    icon: LayoutDashboard,
+  },
+  {
+    title: "Protected Surface",
+    description: "Die technische Grundlage für geschützte Routen wird in diesem Bootstrap vorbereitet.",
+    icon: Shield,
+  },
+  {
+    title: "Operator Focus",
+    description: "Dark-first, nüchtern, auf Monitoring und Steuerung statt Marketing optimiert.",
+    icon: Activity,
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main className="min-h-screen bg-[radial-gradient(circle_at_top,#1b1f31,transparent_35%),linear-gradient(180deg,#0b0d12_0%,#090b10_100%)] text-foreground">
+      <div className="grid min-h-screen lg:grid-cols-[280px_1fr]">
+        <aside className="border-r border-white/10 bg-black/20 px-5 py-6 backdrop-blur">
+          <div className="space-y-6">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.24em] text-zinc-500">
+                Morpheus System
+              </p>
+              <h1 className="mt-2 text-2xl font-semibold tracking-tight">Mission Control</h1>
+              <p className="mt-2 text-sm text-zinc-400">
+                Bootstrap shell for the OpenClaw operator dashboard.
+              </p>
+            </div>
+
+            <Separator className="bg-white/10" />
+
+            <nav className="space-y-2 text-sm text-zinc-300">
+              <div className="flex items-center gap-2 rounded-lg bg-white/5 px-3 py-2 text-white">
+                <LayoutDashboard className="h-4 w-4" />
+                Overview
+              </div>
+              <div className="flex items-center gap-2 rounded-lg px-3 py-2 text-zinc-400">
+                <Bot className="h-4 w-4" />
+                Agents
+              </div>
+              <div className="flex items-center gap-2 rounded-lg px-3 py-2 text-zinc-400">
+                <Bell className="h-4 w-4" />
+                Activity
+              </div>
+              <div className="flex items-center gap-2 rounded-lg px-3 py-2 text-zinc-400">
+                <Clock3 className="h-4 w-4" />
+                Sessions
+              </div>
+            </nav>
+
+            <Card className="border-white/10 bg-white/5 shadow-none">
+              <CardHeader>
+                <CardTitle className="text-base">Sprint 1</CardTitle>
+                <CardDescription>
+                  Foundation first: bootstrap, deployability, first roster slice.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Button className="w-full" variant="secondary">
+                  MICO-8 in progress
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </aside>
+
+        <section className="px-6 py-6 lg:px-8">
+          <header className="flex flex-col gap-4 border-b border-white/10 pb-6 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p className="text-sm uppercase tracking-[0.2em] text-zinc-500">Operator Console</p>
+              <h2 className="mt-2 text-3xl font-semibold tracking-tight text-white">
+                Foundation bootstrap is live.
+              </h2>
+              <p className="mt-2 max-w-2xl text-sm text-zinc-400">
+                This initial shell gives Mission Control a deployable front-end baseline without locking in the
+                final product design too early.
+              </p>
+            </div>
+            <div className="flex items-center gap-3">
+              <Button variant="outline" className="border-white/10 bg-white/5 text-white hover:bg-white/10">
+                View workflow
+              </Button>
+              <Button>Open sprint</Button>
+            </div>
+          </header>
+
+          <div className="mt-6 grid gap-4 xl:grid-cols-3">
+            {highlights.map(({ title, description, icon: Icon }) => (
+              <Card key={title} className="border-white/10 bg-white/5 shadow-none">
+                <CardHeader>
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10">
+                    <Icon className="h-5 w-5 text-white" />
+                  </div>
+                  <CardTitle className="pt-3 text-lg text-white">{title}</CardTitle>
+                  <CardDescription>{description}</CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+
+          <div className="mt-6 grid gap-4 xl:grid-cols-[1.3fr_0.7fr]">
+            <Card className="border-white/10 bg-white/5 shadow-none">
+              <CardHeader>
+                <CardTitle className="text-white">Known agents</CardTitle>
+                <CardDescription>
+                  Static seed data for the bootstrap. Real roster data will come with the agent discovery API.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                {agents.map((agent) => (
+                  <div
+                    key={agent.name}
+                    className="flex items-center justify-between rounded-lg border border-white/10 bg-black/20 px-4 py-3"
+                  >
+                    <div>
+                      <p className="font-medium text-white">{agent.name}</p>
+                      <p className="text-sm text-zinc-400">{agent.role}</p>
+                    </div>
+                    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-zinc-300">
+                      {agent.status}
+                    </span>
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
+
+            <Card className="border-white/10 bg-white/5 shadow-none">
+              <CardHeader>
+                <CardTitle className="text-white">Bootstrap outcomes</CardTitle>
+                <CardDescription>What MICO-8 is meant to establish.</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3 text-sm text-zinc-300">
+                <p>• Next.js 15 App Router baseline</p>
+                <p>• Strict TypeScript setup</p>
+                <p>• Tailwind v4 + shadcn/ui foundation</p>
+                <p>• Dark-first app shell for future features</p>
+                <p>• Room for route protection in MICO-9</p>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+      </div>
+    </main>
   );
 }
