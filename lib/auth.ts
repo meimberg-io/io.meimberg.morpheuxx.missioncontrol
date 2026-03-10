@@ -1,9 +1,10 @@
 export type RouteProtectionMode = "unprotected" | "protected";
 
 /**
- * Bootstrap placeholder for MICO-9.
+ * MICO-9: Access protection is implemented at the Traefik proxy layer via HTTP Basic Auth.
+ * The app itself has no authentication logic in Sprint 1.
  *
- * MICO-8 only establishes the location and shape of route protection logic.
- * Real access protection will be implemented in the follow-up ticket.
+ * This placeholder will become the hook for app-level auth when Basic Auth is replaced
+ * by Google OAuth in a later sprint.
  */
 export const routeProtection: RouteProtectionMode = "unprotected";

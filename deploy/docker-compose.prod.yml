@@ -10,7 +10,11 @@ services:
       - "traefik.http.routers.missioncontrol-prod.rule=Host(`mission-control.morpheuxx.meimberg.io`)"
       - "traefik.http.routers.missioncontrol-prod.entrypoints=websecure"
       - "traefik.http.routers.missioncontrol-prod.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.missioncontrol-prod.middlewares=missioncontrol-prod-auth"
       - "traefik.http.services.missioncontrol-prod.loadbalancer.server.port=3000"
+      # Basic Auth middleware — MICO-9. Credentials via MC_BASIC_AUTH_USERS env var (never committed).
+      # Generate: htpasswd -nb <user> <pass>  (store result without $-escaping in the env var)
+      - "traefik.http.middlewares.missioncontrol-prod-auth.basicauth.users=${MC_BASIC_AUTH_USERS}"
 
 networks:
   traefik:
