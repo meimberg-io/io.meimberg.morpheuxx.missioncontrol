@@ -1,0 +1,17 @@
+services:
+  missioncontrol-dev:
+    image: missioncontrol:dev
+    restart: unless-stopped
+    env_file: .env.dev
+    networks:
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.missioncontrol-dev.rule=Host(`mission-control-dev.morpheuxx.meimberg.io`)"
+      - "traefik.http.routers.missioncontrol-dev.entrypoints=websecure"
+      - "traefik.http.routers.missioncontrol-dev.tls.certresolver=letsencrypt"
+      - "traefik.http.services.missioncontrol-dev.loadbalancer.server.port=3000"
+
+networks:
+  traefik:
+    external: true
